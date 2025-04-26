@@ -47,11 +47,14 @@ export const createTask = async (req: Request, res: Response) => {
             return res.status(400).json({ error: "Title is required" });
         }
 
+        // Convert string date to Date object if provided
+        const dueDateObj = duedate ? new Date(duedate) : undefined;
+
         const task = await taskService.createTask(
             title,
             userId,
             description,
-            duedate
+            dueDateObj
         );
         res.status(201).json(task);
     } catch (error: any) {
