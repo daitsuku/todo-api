@@ -79,3 +79,22 @@ export const logoutUser = async (userId: number) => {
 
     return { success: true };
 };
+
+export const getTokenByUserId = async (userId: number) => {
+    const tokenRecord = await prisma.token.findUnique({
+        where: { userId },
+        select: {
+            id: true,
+            token: true,
+            userId: true,
+            createdAt: true,
+            expiresAt: true,
+        },
+    });
+
+    if (!tokenRecord) {
+        throw new Error("Token not found");
+    }
+
+    return tokenRecord;
+};
