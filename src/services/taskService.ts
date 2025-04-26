@@ -70,7 +70,7 @@ export const createTask = async (
             description,
             userId,
             duedate,
-            piority: priority,
+            priority,
         },
         include: {
             user: {
@@ -93,7 +93,7 @@ export const updateTask = async (
         title?: string;
         description?: string;
         status?: string;
-        piority?: string;
+        priority?: string;
     }
 ) => {
     // Verify task belongs to the user

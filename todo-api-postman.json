@@ -286,7 +286,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"title\": \"New Task\",\n    \"description\": \"This is a new task\",\n    \"duedate\": \"2025-05-15\",\n    \"piority\": \"high\"\n}",
+                            "raw": "{\n    \"title\": \"New Task\",\n    \"description\": \"This is a new task\",\n    \"duedate\": \"2025-05-15\",\n    \"priority\": \"high\"\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -314,7 +314,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"title\": \"Updated Task\",\n    \"status\": \"completed\",\n    \"piority\": \"medium\"\n}",
+                            "raw": "{\n    \"title\": \"Updated Task\",\n    \"status\": \"completed\",\n    \"priority\": \"medium\"\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"

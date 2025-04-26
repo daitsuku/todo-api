@@ -2,6 +2,16 @@
 
 Here's a comprehensive guide to the endpoints available in my API:
 
+## ⚠️ Production Warning
+
+> **IMPORTANT**: This setup is intended for development and testing purposes only. For production environments, you should:
+> - Use strong, unique passwords and JWT secrets
+> - Configure proper environment-specific settings
+> - Implement additional security measures
+> - Consider using a managed database service instead of Docker containers
+> - Set up proper logging, monitoring, and backup solutions
+> - Use HTTPS with valid SSL certificates
+
 ## 🔐 Authentication
 
 | Method | Endpoint | Description |
@@ -78,3 +88,47 @@ To stop and remove all data volumes:
 docker-compose down -v
 ```
 
+## 🔄 Database Migrations and Seeding
+
+This project uses Prisma ORM for database management. Here's how to work with the database:
+
+### Running Migrations
+
+To apply all pending migrations to your database:
+
+```bash
+npm run migrate
+```
+
+This command runs `prisma migrate dev` which will:
+1. Apply any pending migrations
+2. Generate the Prisma client
+3. Create a new migration if you've made changes to your schema
+
+### Seeding the Database
+
+To populate your database with initial data:
+
+```bash
+npm run seed
+```
+
+This runs the seed script located at `prisma/seed.ts` which creates sample users, tasks, and comments.
+
+
+## ⚙️ Environment Variables
+
+The application requires the following environment variables in a `.env` file at the root of the project:
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `DATABASE_URL` | PostgreSQL connection string | `postgresql://yourusername:yourpassword@yourhost:port/yourdb?schema=yourschema` |
+| `PORT` | Port for the server to listen on | `3000 or your desire port` |
+| `JWT_SECRET` | Secret key for JWT token generation | `somerandomhashidk` |
+| `TOKEN_EXPIRY` | JWT token expiration time | `24h or whatever you like` |
+
+the default is in `src/config/environment.ts` anyways, excluding the `DATABASE_URL`.
+
+Please make sure to create `.env` file before starting the application.
+
+This APIs is made for [my todo app](https://github.com/daitsuku/todo-app). Make sure to check it out!

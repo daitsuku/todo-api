@@ -24,7 +24,7 @@ model Task {
   title       String
   description String?
   status      String    @default("pending") // pending, in-progress, completed
-  piority     String    @default("low") // low, medium, high
+  priority    String    @default("low") // low, medium, high
   userId      Int
   user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   comments    Comment[]

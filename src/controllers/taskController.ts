@@ -40,7 +40,7 @@ export const getTaskById = async (req: Request, res: Response) => {
 
 export const createTask = async (req: Request, res: Response) => {
     try {
-        const { title, description, duedate, piority } = req.body;
+        const { title, description, duedate, priority } = req.body;
         const userId = req.userId!;
 
         if (!title) {
@@ -55,7 +55,7 @@ export const createTask = async (req: Request, res: Response) => {
             userId,
             description,
             dueDateObj,
-            piority
+            priority
         );
         res.status(201).json(task);
     } catch (error: any) {
@@ -74,13 +74,13 @@ export const updateTask = async (req: Request, res: Response) => {
         }
 
         const userId = req.userId!;
-        const { title, description, status, piority } = req.body;
+        const { title, description, status, priority } = req.body;
 
         const updatedTask = await taskService.updateTask(taskId, userId, {
             title,
             description,
             status,
-            piority,
+            priority,
         });
         res.status(200).json(updatedTask);
     } catch (error: any) {
