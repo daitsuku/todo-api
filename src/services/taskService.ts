@@ -61,7 +61,8 @@ export const createTask = async (
     title: string,
     userId: number,
     description?: string,
-    duedate?: Date
+    duedate?: Date,
+    priority?: string
 ) => {
     const task = await prisma.task.create({
         data: {
@@ -69,6 +70,7 @@ export const createTask = async (
             description,
             userId,
             duedate,
+            piority: priority,
         },
         include: {
             user: {
@@ -87,7 +89,12 @@ export const createTask = async (
 export const updateTask = async (
     taskId: number,
     userId: number,
-    data: { title?: string; description?: string; status?: string }
+    data: {
+        title?: string;
+        description?: string;
+        status?: string;
+        piority?: string;
+    }
 ) => {
     // Verify task belongs to the user
     const task = await prisma.task.findFirst({
