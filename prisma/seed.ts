@@ -41,6 +41,7 @@ async function main() {
             description: "Finish the task management API with authentication",
             status: "in-progress",
             userId: admin.id,
+            duedate: new Date("2025-05-10"),
         },
     });
 
@@ -50,6 +51,7 @@ async function main() {
             description: "Create comprehensive API documentation",
             status: "pending",
             userId: admin.id,
+            duedate: new Date("2025-05-20"),
         },
     });
 
@@ -59,6 +61,7 @@ async function main() {
             description: "Perform thorough testing of all endpoints",
             status: "pending",
             userId: user.id,
+            duedate: new Date("2025-05-15"),
         },
     });
 

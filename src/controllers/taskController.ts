@@ -40,14 +40,19 @@ export const getTaskById = async (req: Request, res: Response) => {
 
 export const createTask = async (req: Request, res: Response) => {
     try {
-        const { title, description } = req.body;
+        const { title, description, duedate } = req.body;
         const userId = req.userId!;
 
         if (!title) {
             return res.status(400).json({ error: "Title is required" });
         }
 
-        const task = await taskService.createTask(title, userId, description);
+        const task = await taskService.createTask(
+            title,
+            userId,
+            description,
+            duedate
+        );
         res.status(201).json(task);
     } catch (error: any) {
         res.status(500).json({

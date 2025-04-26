@@ -267,7 +267,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"title\": \"New Task\",\n    \"description\": \"This is a new task\"\n}",
+                            "raw": "{\n    \"title\": \"New Task\",\n    \"description\": \"This is a new task\",\n    \"duedate\": \"2025-05-15\"\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"

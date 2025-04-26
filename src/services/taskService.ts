@@ -60,13 +60,15 @@ export const getTaskById = async (
 export const createTask = async (
     title: string,
     userId: number,
-    description?: string
+    description?: string,
+    duedate?: Date
 ) => {
     const task = await prisma.task.create({
         data: {
             title,
             description,
             userId,
+            duedate,
         },
         include: {
             user: {
